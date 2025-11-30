@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Virtual Business Card — Nqabutho Ncube</title>
+  <meta name="description" content="Cyber developer virtual business card — icons + hover text action bar." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+ <script src="https://kit.fontawesome.com/a101ca983e.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body class="theme-cyber">
+  <div class="bg-hero" role="img" aria-hidden="true"></div>
+
+  <div class="page">
+
+    <main class="card" id="card" role="region" aria-label="Virtual business card">
+      <div class="avatar-wrap">
+        <img src="assets/Me1.jpg" alt="Nqabutho Ncube" class="avatar">
+      </div>
+
+      <header class="card-head">
+        <h1 class="name">Nqabutho Ncube</h1>
+        <p class="role">BCA Final Year Student • Full-Stack Developer</p>
+      </header>
+
+      <!-- W3 placement: WIDE ACTION BAR directly under the name -->
+      <nav class="wide-bar" aria-label="Quick actions">
+        <!-- Each item is icons-only, with label revealed on hover/focus -->
+        <a class="wide-item" href="tel:+918744837663" aria-label="Call">
+          <i class="fas fa-phone"></i>
+          <span class="wide-label">Call</span>
+        </a>
+        <a class="wide-item" href="mailto:nqabuthoncube15@gmail.com" aria-label="Email">
+          <i class="fas fa-envelope"></i>
+          <span class="wide-label">Email</span>
+        </a>
+        <a class="wide-item" href="https://www.linkedin.com/in/nqabutho-ncube-b714702bb/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+          <span class="wide-label">LinkedIn</span>
+        </a>
+        <a class="wide-item" href="https://github.com/NqabuthoNcube" target="_blank" rel="noopener" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+          <span class="wide-label">GitHub</span>
+        </a>
+        <a class="wide-item" href="https://nqabuthoportfolio.vercel.app/" target="_blank" rel="noopener" aria-label="Official CV">
+          <i class="fas fa-file-alt"></i>
+          <span class="wide-label">CV</span>
+        </a>
+      </nav>
+
+      <section class="card-body">
+        <p class="bio">I build modern, responsive web apps using HTML, CSS, JavaScript, React and Node.js. I focus on clean UI, accessible UX and efficient performance.</p>
+
+        <div class="chips" aria-label="skills">
+          <span class="chip">HTML</span>
+          <span class="chip">CSS</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">React</span>
+          <span class="chip">Node.js</span>
+          <span class="chip">SQL</span>
+          <span class="chip">GitHub</span>
+        </div>
+
+        <div class="download-row">
+          <button id="downloadVCard" class="btn btn-download"><i class="fas fa-download"></i> Download vCard</button>
+        </div>
+      </section>
+
+      <footer class="card-foot">
+        <small>© <span id="year"></span> Nqabutho Ncube - 2025</small>
+      </footer>
+    </main>
+  </div>
+
+  <!-- QR Modal (used by share/QR button in script) -->
+  <div id="qrModal" class="modal" aria-hidden="true">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-label="QR Code">
+      <button class="close" id="closeQr" title="Close"><i class="fas fa-times"></i></button>
+      <h3>Open this card</h3>
+      <div id="qrcode" class="qrcode" aria-hidden="true"></div>
+      <p class="modal-note">Scan with your phone camera or download the PNG.</p>
+      <div class="modal-actions">
+        <button id="downloadQR" class="btn btn-primary"><i class="fas fa-download"></i> Download PNG</button>
+        <button id="copyLink" class="btn btn-ghost"><i class="fas fa-link"></i> Copy Link</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

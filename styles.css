@@ -1,0 +1,122 @@
+/* Cyber-only theme with W3 wide action bar (icons-only with hover text) */
+/* Base */
+:root{
+  --bg-dark:#060609;
+  --bg-mid:#0b0b0d;
+  --accent-1:#4f7bff;
+  --accent-2:#8c63ff;
+  --glass-border: rgba(255,255,255,0.04);
+  --muted:#9aa0a6;
+  --card-radius:20px;
+  --card-width:460px;
+}
+
+/* Reset & layout */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  background: radial-gradient(1200px 400px at 10% 10%, rgba(60,80,240,0.04), transparent),
+              radial-gradient(1000px 400px at 90% 90%, rgba(124,58,237,0.03), transparent),
+              linear-gradient(180deg,var(--bg-dark),var(--bg-mid));
+  color:#e6eef8;
+  display:flex;align-items:center;justify-content:center;padding:36px;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* animated blurred background image */
+.bg-hero{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image: url('/mnt/data/44c9ea8b-ae35-4c55-9f8e-a2c3c3858fc2.png');
+  background-size:cover;background-position:center;
+  filter: blur(28px) brightness(.18) saturate(120%);
+  opacity:.44; animation: bgMove 20s linear infinite;
+}
+@keyframes bgMove{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
+
+/* container */
+.page{position:relative;z-index:2;width:100%;max-width:1100px;display:flex;justify-content:center}
+.controls{position:absolute;right:18px;top:18px;display:flex;gap:10px;z-index:50}
+.control-btn{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.02);color:#dbeafe;padding:8px 10px;border-radius:10px;font-weight:700;cursor:pointer;backdrop-filter:blur(6px)}
+.control-btn:hover{transform:translateY(-2px)}
+
+/* card */
+.card{
+  width:var(--card-width);border-radius:var(--card-radius);
+  padding:22px 20px 18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border:1px solid var(--glass-border);box-shadow:0 18px 60px rgba(3,6,22,0.7);backdrop-filter: blur(8px);display:flex;flex-direction:column;align-items:center;gap:12px;position:relative;z-index:10;
+}
+
+/* avatar fully inside card */
+.avatar-wrap{width:112px;height:112px;border-radius:999px;padding:6px;background:rgba(255,255,255,0.02);display:flex;align-items:center;justify-content:center;border-radius:999px;box-shadow:0 18px 60px rgba(99,102,241,0.06);margin-top:6px}
+.avatar{width:100px;height:100px;border-radius:999px;object-fit:cover;border:6px solid rgba(255,255,255,0.02);display:block;transform:translateY(0);}
+
+/* header */
+.card-head{text-align:center;margin-top:6px}
+.name{font-size:1.45rem;font-weight:800;margin:6px 0;color:#e9f2ff}
+.role{margin:0;color:var(--muted);font-weight:600;font-size:0.95rem}
+
+/* WIDE ACTION BAR (icons-only with hover labels) */
+.wide-bar{
+  width:100%;display:flex;align-items:center;justify-content:space-between;
+  gap:8px;margin:10px 0;padding:8px;border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.008));
+  border:1px solid rgba(255,255,255,0.02);
+  box-shadow: 0 12px 40px rgba(68,72,255,0.04);
+}
+
+/* wide items */
+.wide-item{
+  flex:1;display:flex;align-items:center;justify-content:center;position:relative;padding:12px 6px;border-radius:10px;color:#e6eef8;text-decoration:none;
+  transition:background .18s ease, transform .18s ease;
+}
+.wide-item i{font-size:20px}
+.wide-item:focus{outline:2px solid rgba(79,123,255,0.18);outline-offset:4px;border-radius:8px}
+
+/* label hidden by default; appears when hovering or focusing the item */
+.wide-label{
+  position:absolute;left:50%;transform:translateX(-50%) translateY(10px);
+  bottom:-36px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
+  color:white;padding:6px 10px;border-radius:10px;font-weight:800;font-size:0.9rem;
+  opacity:0;pointer-events:none;transition:all .22s cubic-bezier(.2,.9,.3,1);
+  box-shadow:0 14px 36px rgba(79,123,255,0.14);
+}
+
+/* show label on hover or focus */
+.wide-item:hover .wide-label,
+.wide-item:focus .wide-label{
+  opacity:1;transform:translateX(-50%) translateY(0);
+}
+
+/* subtle hover backgrounds for the icons to show active region */
+.wide-item:hover{background:linear-gradient(90deg, rgba(79,123,255,0.06), rgba(140,99,255,0.04));transform:translateY(-4px)}
+
+/* body contents */
+.card-body{width:100%;display:flex;flex-direction:column;align-items:center;gap:12px;padding:6px 4px}
+.bio{max-width:90%;text-align:center;color:#9fa9bc;line-height:1.5;margin:6px 0 0;font-size:0.95rem}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding-top:6px}
+.chip{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));padding:8px 12px;border-radius:999px;font-weight:800;font-size:0.84rem;color:#dbeafe;border:1px solid rgba(255,255,255,0.02);box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+
+/* download */
+.download-row{width:100%;display:flex;justify-content:center;padding-top:8px}
+.btn-download{background:transparent;color:#e6eef8;border:1px solid rgba(255,255,255,0.06);padding:10px 14px;border-radius:12px;font-weight:800;box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+
+/* footer */
+.card-foot{width:100%;padding-top:8px;text-align:center;color:var(--muted);font-size:.86rem}
+
+/* modal */
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:linear-gradient(0deg, rgba(2,6,23,0.56), rgba(2,6,23,0.56));z-index:999}
+.modal.show{display:flex}
+.modal-panel{width:320px;background:linear-gradient(180deg,#0b0d10,#071014);padding:18px;border-radius:12px;position:relative;box-shadow:0 30px 80px rgba(2,6,23,0.65);display:flex;flex-direction:column;align-items:center;gap:12px}
+
+/* small screens: condense and ensure wide-bar is horizontally scrollable */
+@media (max-width:640px){
+  :root{--card-width:92%}
+  .wide-bar{gap:6px;overflow:auto;padding:6px}
+  .wide-item{min-width:80px;flex:0 0 auto}
+  .wide-label{bottom:-44px}
+  .avatar-wrap{width:96px;height:96px}
+  .avatar{width:84px;height:84px}
+  .card{padding:18px}
+}
